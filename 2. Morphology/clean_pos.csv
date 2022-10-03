@@ -127,7 +127,7 @@ token,pos,mystem,mystem_f,natasha,natasha_f,pymorphy,pymorphy_f
 двоих,NUM,NUM,NUM,NUM,NUM,NUMR,NUM
 слились,V,V,V,VERB,V,VERB,V
 в,PR,PR,PR,ADP,PR,PREP,PR
-одно,NUM,ANUM,ANUM,NUM,NUM,ADJF,A
+одно,NUM,ANUM,NUM,NUM,NUM,ADJF,A
 две,NUM,NUM,NUM,NUM,NUM,NUMR,NUM
 лодки,S,S,S,NOUN,S,NOUN,S
 как,ADVPRO,CONJ,CONJ,SCONJ,CONJ,CONJ,CONJ
