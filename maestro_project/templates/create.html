@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" type= "text/css" href="{{ url_for('static',filename='styles/style.css') }}">
+{% endblock %}
+
+{% block content %}
+<h1>{% block title %} Create a New Post {% endblock %}</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="query">Query</label>
+        <textarea name="query" placeholder="Type a query"
+                  class="form-control">{{query}}</textarea>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+
+
+{% if pagination %}
+<div class="content">
+    {{ pagination.links }}
+    <div class="container">
+        {% for employee in items %}
+        <div class="employee">
+            <p><b>#{{ employee["index"] }}</b></p>
+            <p>{{ employee["sents"] }}</p>
+            <p>{{ employee["titles"] }}</p>
+            <p>{{ employee["dates"] }} years old.</p>
+        </div>
+        {% endfor %}
+    </div>
+    {{ pagination.links }}
+</div>
+{% endif %}
+
+{% endblock %}
