@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>W3.CSS Template</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<style>
+		body {
+			font-family: "Lato", sans-serif
+		}
+
+		.mySlides {
+			display: none
+		}
+
+		@font-face {
+			font-family: titlefont;
+			src: url('static/fonts/Bickham Script Two.ttf');
+		}
+
+		.unselectable {
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			-webkit-text-stroke: 0.75px black;
+			text-shadow: 2px 2px 4px black;
+			text-align: right;
+			font-size: 112px;
+			color: rgb(251, 232, 125);
+			margin-left: 10px;
+			font-family: titlefont;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-top: -300px;
+			margin-left: -500px;
+			width: 900px;
+			height: 80px;
+			z-index: 5
+		}
+	</style>
+	<link rel="stylesheet" href="{{ url_for('static',filename='styles/index.css') }}">
+</head>
+<body>
+
+	<!-- Navbar -->
+	<div class="w3-top">
+		<div class="w3-bar w3-black w3-card">
+			<a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+			<a href="#" class="w3-bar-item w3-button w3-padding-large">Главная</a>
+			<a href="search2" class="w3-bar-item w3-button w3-padding-large">Поиск</a>
+		</div>
+	</div>
+
+	<!-- Page content -->
+	<div class="w3-content" style="max-width: 2000px; margin-top: 46px; height: 100vh; background-image: url( {{ url_for('static',filename="pics/bg.jpg") }} )">
+
+		<h1 class="unselectable">
+			Первый научный корпус
+		</h1>
+		<h1 class="unselectable" style="margin-top: -245px;">
+			русского языка
+		</h1>
+		<!-- Automatic Slideshow Images -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+		<form method="post" class="container" style="position: absolute; top: 50%; left: 50%; margin-top: 160px; margin-left: -450px; width: 900px; height: 80px; z-index: 5">
+			<div class="row justify-content-center" style="float: left; min-width:100%">
+				<div class="col-12 col-md-10 col-lg-8" style="float: left; min-width:100%">
+					<form class="card card-sm">
+						<div class="card-body row no-gutters align-items-center">
+							<div class="col-auto">
+								<i class="fas fa-search h4 text-body"></i>
+							</div>
+							<!--end of col-->
+							<div class="col">
+								<input name="query" style="color: navy" class="form-control form-control-lg form-control-borderless" type="search" placeholder="Введите запрос">{{query}}</input>
+							</div>
+							<!--end of col-->
+							<div class="col-auto">
+								<button class="btn btn-lg btn-primary" type="submit" style="color: rgb(251, 232, 125)">Search</button>
+							</div>
+							<!--end of col-->
+						</div>
+					</form>
+				</div>
+				<!--end of col-->
+			</div>
+		</form>
+		<!-- не могу сделать циклом, jinja ругается на формат строки -->
+
+		<link rel="stylesheet" href="{{ url_for('static',filename="css/carousel.css") }}">
+		<div class="carousel">
+			<img src="{{ url_for('static',filename="pics/maestro1.jpg") }} style=" width:100%"">
+			<img src="{{ url_for('static',filename="pics/maestro2.jpg") }} style=" width:100%"">
+			<img src="{{ url_for('static',filename="pics/maestro3.jpg") }} style=" width:100%"">
+			<img src="{{ url_for('static',filename="pics/maestro6.jpg") }} style=" width:100%"">
+		</div>
+
+		<div class="slideshow-container">
+
+			<div class="mySlides w3-animate-fading w3-display-container w3-center" style="transition: transform 2.6s ease-in-out; top: 20px; display: block; margin-left: auto; margin-right: auto; width: 130vh; height: 90%; background-color: #475; overflow: scroll; filter: brightness(70%); background-image: url({{ url_for('static',filename='pics/title.png') }})">
+				<img src="{{ url_for('static',filename="pics/maestro1.jpg") }}" style="width:100%"</img>
+			</div>
+			<div class="mySlides w3-animate-fading w3-display-container w3-center" style="top: 20px; display: block; margin-left: auto; margin-right: auto; width: 130vh; height: 90%; background-color: #475; overflow: scroll; filter: brightness(70%); background-image: url({{ url_for('static',filename='pics/title.png') }})">
+				<img src="{{ url_for('static',filename="pics/maestro2.jpg") }}" style="width:100%"</img>
+			</div>
+			<div class="mySlides w3-animate-fading w3-display-container w3-center" style="top: 20px; display: block; margin-left: auto; margin-right: auto; width: 130vh; height: 90%; background-color: #475; overflow: scroll; filter: brightness(80%); background-image: url({{ url_for('static',filename='pics/title.png') }})">
+				<img src="{{ url_for('static',filename="pics/maestro3.jpg") }}" style="width:100%"</img>
+			</div>
+			<div class="mySlides w3-animate-fading w3-display-container w3-center" style="top: 20px; display: block; margin-left: auto; margin-right: auto; width: 130vh; height: 90%; background-color: #475; overflow: scroll; filter: brightness(80%); background-image: url({{ url_for('static',filename='pics/title.png') }})">
+				<img src="{{ url_for('static',filename="pics/maestro4.jpg") }}" style="width:100%"</img>
+			</div>
+			<div class="mySlides w3-animate-fading w3-display-container w3-center" style="top: 20px; display: block; margin-left: auto; margin-right: auto; width: 130vh; height: 90%; background-color: #475; overflow: scroll; filter: brightness(70%); background-image: url({{ url_for('static',filename='pics/title.png') }})">
+				<img src="{{ url_for('static',filename="pics/maestro5.jpg") }}" style="width:100%"</img>
+			</div>
+			<div class="mySlides w3-animate-fading w3-display-container w3-center" style="top: 20px; display: block; margin-left: auto; margin-right: auto; width: 130vh; height: 90%; background-color: #475; overflow: scroll; filter: brightness(70%); background-image: url({{ url_for('static',filename='pics/title.png') }})">
+				<img src="{{ url_for('static',filename="pics/maestro6.jpg") }}" style="width:100%"</img>
+			</div>
+			<div class="mySlides w3-animate-fading w3-display-container w3-center" style="top: 20px; display: block; margin-left: auto; margin-right: auto; width: 130vh; height: 100vh; background-color: #475; overflow: scroll; filter: brightness(70%); background-image: url({{ url_for('static',filename='pics/title.png') }})">
+				<img src="{{ url_for('static',filename="pics/maestro7.jpg") }}" style="width:100%"</img>
+			</div>
+
+		</div>
+
+		<!-- The Band Section -->
+		<div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
+			<h2 class="w3-wide">О КОРПУСЕ</h2>
+			<p class="w3-justify">
+				Корпус собран на основе постов и статьей Е. Н. Понасенкова, доступных в открытом доступе,
+				в частности на его странице ВК и в его личном блоге. Помимо этого сюда были включены тексты двух его
+				исторических трудов, распознанные программными методами. Для каждого текста произведена морфологическая разметка в
+				соответствии с тегсетом pymorphy2. Подробности на странице поиска. Все данные лежат в репозитории в формате csv, а также доступны
+				для выдачи по поисковому запросу
+			</p>
+			<div class="w3-row w3-padding-32">
+				<div class="w3-third">
+					<h1>26343</h1>
+					<p>размеченных предложения</p>
+				</div>
+				<div class="w3-third">
+					<h1>481855</h1>
+					<p>слов в корпусе</p>
+				</div>
+				<div class="w3-third">
+					<h1>52</h1>
+					<p>различных источника, включая крупные работы</p>
+				</div>
+			</div>
+		</div>
+
+		<!-- End Page Content -->
+	</div>
+
+	<!-- Footer -->
+	<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+		<a href="http://www.google.com" target="_blank">
+			<img style=" height: 120px; width: auto;" src="{{ url_for('static',filename="pics/git.png") }}" />
+		</a>
+		<p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+	</footer>
+
+	<script>
+		// Automatic Slideshow - change image every 4 seconds
+		let slideIndex = 0;
+		showSlides();
+
+		function showSlides() {
+			let i;
+			let slides = document.getElementsByClassName("mySlides");
+			for (i = 0; i < slides.length; i++) {
+				slides[i].style.display = "none";
+			}
+			slideIndex++;
+			if (slideIndex > slides.length) { slideIndex = 1 }
+			slides[slideIndex - 1].style.display = "block";
+			setTimeout(showSlides, 5000);
+		}
+
+		// Used to toggle the menu on small screens when clicking on the menu button
+		function myFunction() {
+			var x = document.getElementById("navDemo");
+			if (x.className.indexOf("w3-show") == -1) {
+				x.className += " w3-show";
+			} else {
+				x.className = x.className.replace(" w3-show", "");
+			}
+		}
+
+		// When the user clicks anywhere outside of the modal, close it
+		var modal = document.getElementById('ticketModal');
+		window.onclick = function (event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
+	</script>
+
+</body>
+</html>

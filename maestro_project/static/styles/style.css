@@ -1,17 +1,5 @@
-h1 {
-    border: 2px #eee solid;
-    color: brown;
-    text-align: center;
-    padding: 10px;
+.body {
+    background-image: url("title.png")
 }
 
-body {
-    background-color: "black";
-    color: "black"
-}
-
-body {
-    background-color: "red";
-    color: "red"
-}
-
+    

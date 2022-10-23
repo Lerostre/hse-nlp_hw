@@ -2,6 +2,7 @@
 import pandas as pd
 import numpy as np
 import ast
+import os
 from web_search import *
 from flask import Flask, render_template, request, url_for, flash, redirect
 from werkzeug.exceptions import abort
@@ -27,15 +28,22 @@ def index():
         return redirect(url_for('search2', query=data))
 
     else:
-        html = render_template('create.html', pagination=None)
+        html = render_template('index.html')
         return html
 
+@app.route('/search2/', defaults={'query': None}, methods=['GET', 'POST'])
 @app.route('/search2/<query>', methods=['GET', 'POST'])
 def search2(query):
+
+    print(query)
 
     if request.method == 'POST':
         data = request.form['query']
         return redirect(url_for('search2', query=data))
+
+    if not query:
+        html = render_template('create.html', pagination=False)
+        return html
 
     results = search(query, sents, words, meta)
     page, per_page, offset = get_page_args(page_parameter='page',
