@@ -5,3 +5,4 @@
 Что-то от проекта тут тоже есть, но полностью он вот тут -     
 https://github.com/Lerostre/lerostre.github.io - репозиторий     
 http://lerostre.pythonanywhere.com - сайтик
+Дз3 тоже появилось
